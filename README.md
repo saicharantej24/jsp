@@ -122,6 +122,51 @@ Error
 output:
 Error / by zero
 ---------------------------------------------
+clas.java:
+package jspweb;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/clas")
+public class clas extends HttpServlet {
+    public void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException, IOException
+    {       
+    	
+    	String name="sai";
+    	req.setAttribute("label", name);
+    	RequestDispatcher rd=req.getRequestDispatcher("home.jsp");
+    			rd.forward(req, res);
+    }
+}
+
+home.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Hello World
+   
+  <%
+           String name=request.getAttribute("label").toString();
+                  out.println(name);
+  %>
+</body>
+</html>
+output:
+Hello World sai
+---------------------------------------------------------***********************-------------------------------
 
    
    
